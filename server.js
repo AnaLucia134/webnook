@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.send("App funcionando correctamente");
+    res.status(200).send("App funcionando correctamente");
 });
 
 app.post("/webhook", (req, res) => {
@@ -12,8 +12,6 @@ app.post("/webhook", (req, res) => {
     res.status(200).json({ message: "Evento recibido" });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
+// Exportar la aplicación
+module.exports = app;
 
